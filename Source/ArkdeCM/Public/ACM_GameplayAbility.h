@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Abilities/GameplayAbility.h"
+#include "ArkdeCM/ArkdeCM.h"
 #include "ACM_GameplayAbility.generated.h"
 
 /**
@@ -13,5 +14,19 @@ UCLASS()
 class ARKDECM_API UACM_GameplayAbility : public UGameplayAbility
 {
 	GENERATED_BODY()
+
+public:
+	UACM_GameplayAbility();
+
+	/*--- Ability inputs ids start---- */
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Gameplay Ability")
+
+	EACM_AbilityInputID AbilityInputID;
+
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Gameplay Ability")
+	EACM_AbilityInputID AbilityID;
+
+	/*--- Ability input ids end-----*/
 	
 };
