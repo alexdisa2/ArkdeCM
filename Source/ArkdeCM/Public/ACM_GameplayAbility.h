@@ -20,7 +20,6 @@ public:
 
 	/*--- Ability inputs ids start---- */
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Gameplay Ability")
-
 	EACM_AbilityInputID AbilityInputID;
 
 
