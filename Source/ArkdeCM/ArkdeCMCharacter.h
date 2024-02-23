@@ -88,7 +88,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Gameplay Ability System")
 	UACM_AttributeSet* AttributeSet;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Gameplay Ability System")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Gameplay Ability System")
 	TArray<TSubclassOf<UACM_GameplayAbility>> StartingAbilities;
 
 	/*---- Gameplay Ability System End ---*/

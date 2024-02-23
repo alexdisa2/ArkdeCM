@@ -50,7 +50,9 @@ AArkdeCMCharacter::AArkdeCMCharacter()
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 
-	AbilitySystemComponenet = CreateDefaultSubobject<UAbilitySystemComponent>(TEXT("Ability System Component1"));
+	AbilitySystemComponenet = CreateDefaultSubobject<UAbilitySystemComponent>(TEXT("Ability System Component"));
+	AbilitySystemComponenet->SetIsReplicated(true);
+	AbilitySystemComponenet->SetReplicationMode(EGameplayEffectReplicationMode::Full);
 
 	AttributeSet = CreateDefaultSubobject<UACM_AttributeSet>(TEXT("Attribute Set"));
 }
@@ -59,7 +61,7 @@ void AArkdeCMCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
-	if (IsValid(AbilitySystemComponenet))
+	if (GetLocalRole() == ENetRole::ROLE_Authority && IsValid(AbilitySystemComponenet))
 	{
 		for (TSubclassOf<UACM_GameplayAbility>& currentAbility : StartingAbilities)
 		{
